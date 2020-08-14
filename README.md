@@ -8,7 +8,7 @@ Bird Spotter UK is a fullstack app that allows users to record and track sightin
 
 ## Usage
 
-The app was created using Docker, meaning anyone with Docker will be able to clone and run the app on any machine. 
+The app uses Docker containers, meaning anyone with Docker downloaded will be able to clone and run the app. 
 
 To build and run the app: 
 
