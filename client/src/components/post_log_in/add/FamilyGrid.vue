@@ -35,10 +35,10 @@ export default {
     },
 
     methods: {
-        ...mapActions(['getBirds', 'getFamily']),
+        ...mapActions(['setBirds', 'setFamily']),
 
         handleFamily(family){
-            this.getFamily(family);
+            this.setFamily(family);
             this.gridStatus = false;
         }
 
@@ -49,12 +49,12 @@ export default {
 
         birdFamilyList: function(){
             if (this.allBirds) {
-                console.log(this.allBirds);
+                // console.log(this.allBirds);
             const familyArray = this.allBirds.map(bird => bird.family);
             let uniqueFamilyArray = familyArray.filter((family, index, array) => {
                 return array.indexOf(family) === index;
             })
-            console.log(uniqueFamilyArray);
+            // console.log(uniqueFamilyArray);
             return uniqueFamilyArray.sort();
             }
         },
@@ -75,7 +75,7 @@ export default {
         },
     },
     mounted() {
-        this.getBirds()
+        this.setBirds()
 
         eventBus.$on('close-grid', (bird)=>{
             this.gridStatus = false

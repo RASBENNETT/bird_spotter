@@ -8,17 +8,17 @@ const getters = {
 };
 
 const actions = {
-    getBirds: function ({commit}){
+    setBirds: function ({commit}){
         fetch("http://localhost:3000/birds/")
          .then((res) => res.json()
-         .then((res) => commit('setBirds', res))
+         .then((res) => commit('setStateBirds', res))
         )
     },
     
 };
 
 const mutations = {
-    setBirds(state, birds) {state.birds = birds}
+    setStateBirds(state, birds) {state.birds = birds}
 };
 
 

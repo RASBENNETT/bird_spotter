@@ -14,24 +14,24 @@ const getters = {
 };
 
 const actions = {
-    getFamily: function({commit}, family){
-        commit('setFamily', family)
+    setFamily: function({commit}, family){
+        commit('setStateFamily', family)
     },
-    getBird: function({commit}, bird){
-        commit('setBird', bird)
-        commit('setFamily', bird.family)
+    setBird: function({commit}, bird){
+        commit('setStateBird', bird)
+        commit('setStateFamily', bird.family)
     },
-    getLatLng: function({commit}, orr){
-        commit('setLat', orr.lat)
-        commit('setLng', orr.lng)
+    setLatLng: function({commit}, orr){
+        commit('setStateLat', orr.lat)
+        commit('setStateLng', orr.lng)
     },
 };
 
 const mutations = {
-    setFamily(state, family) {state.selectedFamily = family},
-    setBird(state, bird) {state.selectedBird = bird},
-    setLat(state, lat) {state.selectedLat = lat},
-    setLng(state, lng) {state.selectedLng = lng},
+    setStateFamily(state, family) {state.selectedFamily = family},
+    setStateBird(state, bird) {state.selectedBird = bird},
+    setStateLat(state, lat) {state.selectedLat = lat},
+    setStateLng(state, lng) {state.selectedLng = lng},
 };
 
 

@@ -12,13 +12,19 @@
 <script>
 import UserPanel from "./post_log_in/UserPanel"
 import NavigationBar from "./post_log_in/NavigationBar"
-import DashBoard from "./post_log_in/DashBoard"
+import DashBoard from "./post_log_in/dash/DashBoard"
 import AddSighting from "./post_log_in/add/AddSighting"
 import MySightings from "./post_log_in/sightings/MySightings"
 import {eventBus} from "../main.js"
+import { mapGetters, mapActions } from "vuex"
+
+
+
+    
 
 export default {
     name: 'post-login',
+    
     data() {
         return {
             showDashboard: true,
@@ -26,7 +32,17 @@ export default {
             showBirds: false
         }
     },
+   
+    computed: mapGetters(['userId']),
+    
+    methods: {
+        ...mapActions(['getSightings']),
+    },
+
     mounted() {
+
+        this.getSightings(this.userId)
+
         eventBus.$on('select-show', (comp) => {
             if (comp === "dashboard") {
                 this.showDashboard = true;

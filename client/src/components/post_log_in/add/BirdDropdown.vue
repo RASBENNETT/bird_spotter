@@ -53,19 +53,19 @@ export default {
     },
     methods: {
         // Tell Vuex what state actions to map to Bird Dropdown Component
-        ...mapActions(['getBirds', 'getBird', 'getFamily']),
+        ...mapActions(['setBirds', 'setBird', 'setFamily']),
 
         handleBird(bird){
             this.dropdownStatus = false;
             eventBus.$emit('close-grid', bird)
-            this.getFamily(bird.family)
-            this.getBird(bird);
+            this.setFamily(bird.family)
+            this.setBird(bird);
         }
 
     },
      mounted() {
          // Get all birds from Vuex
-        this.getBirds()
+        this.setBirds()
     },
 }
 </script>

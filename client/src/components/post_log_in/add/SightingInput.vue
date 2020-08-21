@@ -52,7 +52,7 @@ export default {
     computed: mapGetters(['selectedFamily', 'selectedBird', 'selectedLat', 'selectedLng', 'userId']),
 
     methods: {
-        ...mapActions(['getFamily', 'getBird', 'getLat', 'getLng', 'getDate', 'getTime', 'getNotes', 'postSighting']),
+        ...mapActions(['setFamily', 'setBird', 'setLat', 'setLng', 'postSighting']),
 
         handleSubmit() {
             const payload = {
@@ -68,8 +68,8 @@ export default {
 
             this.postSighting(payload)
 
-            this.getBird(null);
-            this.getFamily(null);
+            this.setBird(null);
+            this.setFamily(null);
             this.time = "";
             this.date = "";
             this.notes = "";
@@ -82,7 +82,7 @@ export default {
     },
 
     created(){
-        this.getFamily();
+        this.setFamily();
     },
 
     components: {
